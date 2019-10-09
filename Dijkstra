@@ -1,0 +1,11 @@
+FORWARD_LABEL_CORRECTING(xG)
+  Set C(X)=∞ for all x no= xI ,and set C(xI)=0
+  Q.Insert(xI)
+  while Q not empty do
+    x <- Q.GetFirst()
+    forall u belong to U(x)
+      x' <- f(u,x)
+      if C(x)+l(x,u)<min{C(x'),C(xG)} then
+        C(x') <- C(x)+l(x,u)
+        if x' no=xG then
+        Q.Insert(x')
