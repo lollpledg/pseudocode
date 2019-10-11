@@ -1,0 +1,14 @@
+FORWARD_SEARCH
+  Q.Insert(xI) and mark xI as visited
+  while Q not empty do
+      x <- Q.GetFirst()
+      if x belongto xG
+          return SUCCESS
+      forall u belongto U(x)
+          x' <-f(x,u)
+          if x' not visited
+              mark x' as visited
+              Q.Insert(x')
+          else
+              Resolve duplicate x'
+  return FALIURE
