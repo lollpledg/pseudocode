@@ -1,0 +1,18 @@
+function BuildRRT(qinit,k,deita_q)
+	T.init(qinit)
+	for k=1 to K
+		qrand=Sample()   --choose a random configuration
+		qnearest=Nearest(T,qrand)   --selects the node in the RRT tree is closest to qrand
+		if Distance(qnearest,qgoal)<Threshold then
+			return true
+		qnew=Extend(qnearest,qrand,deita_q)   --moving from qnearest an incremental distance in the direction of qrand
+		if qnew no= NULL then
+			T.AddNode(qnew)
+	return false
+
+function Sample()   --Alternatively,one could replace Sample with SampleFree(by using a collision detection algorithm to reject samples in C_obstacle)
+	p=Random(0,1.0)
+	if 0<p<Prob then
+		return qgoal
+	elseif Prob<p<1.0 then
+		return RandomNode()
